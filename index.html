@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harry Potter Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <div class="stat level">Level: <span id="levelDisplay">1</span></div>
+            <div class="stat lives">❤️ <span id="livesDisplay">40</span></div>
+            <div class="stat timer">⏱️ <span id="timerDisplay">60</span></div>
+            <div class="stat score">Score: <span id="scoreDisplay">0</span></div>
+        </div>
+
+        <div class="question-container">
+            <div class="question" id="question">Who is Harry's godfather?</div>
+            <div class="hint-box" id="hintBox">💡 Tap the hint button for a clue</div>
+            <div class="word-display" id="wordDisplay"></div>
+        </div>
+
+        <div class="letters-container" id="lettersContainer"></div>
+
+        <div class="controls">
+            <button class="btn btn-hint" onclick="showHint()">💡 Hint</button>
+            <button class="btn btn-pause" onclick="pauseGame()">⏸️ Pause</button>
+            <button class="btn btn-skip" onclick="skipQuestion()">⏭️ Skip</button>
+        </div>
+
+        <div class="game-over" id="gameOver">
+            <div class="modal-content">
+                <div class="modal-title">Game Over! 💀</div>
+                <div class="modal-text">You've run out of lives!<br>Final Score: <span id="finalScore">0</span></div>
+                <button class="btn btn-restart" onclick="restartGame()">🔄 Play Again</button>
+            </div>
+        </div>
+
+        <div class="level-complete" id="levelComplete">
+            <div class="modal-content">
+                <div class="modal-title">Level Complete! ⭐</div>
+                <div class="modal-text">Well done! Ready for the next challenge?</div>
+                <button class="btn btn-next" onclick="nextLevel()">➡️ Next Level</button>
+            </div>
+        </div>
+
+        <div class="game-complete" id="gameComplete">
+            <div class="modal-content">
+                <div class="modal-title">Congratulations! 🏆</div>
+                <div class="modal-text">You've completed all 50 levels!<br>Final Score: <span id="gameCompleteScore">0</span></div>
+                <button class="btn btn-restart" onclick="restartGame()">🔄 Play Again</button>
+            </div>
+        </div>
+
+        <div class="skip-confirm" id="skipConfirm">
+            <div class="modal-content">
+                <div class="modal-title">Skip Question?</div>
+                <div class="modal-text">Are you sure you want to skip? You will lose one life.</div>
+                <div class="controls">
+                    <button class="btn btn-skip" onclick="confirmSkip()">Yes, Skip</button>
+                    <button class="btn btn-hint" onclick="closeSkipConfirm()">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="pause-modal" id="pauseModal">
+            <div class="modal-content">
+                <div class="modal-title">You Stopped The Timer</div>
+                <div class="modal-text">The game is paused.</div>
+                <button class="btn btn-next" onclick="resumeGame()">▶️ Resume</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

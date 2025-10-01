@@ -307,7 +307,7 @@ const questions = [
 
 // Game state
 let currentLevel = 0;
-let lives = 40;
+let lives = 15;
 let score = 0;
 let timer = 60;
 let timerInterval;
@@ -572,3 +572,4 @@ function resumeGame() {
     document.getElementById('pauseModal').classList.remove('show');
     startTimer();
 }
+

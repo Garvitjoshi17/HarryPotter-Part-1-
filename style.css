@@ -262,11 +262,10 @@ body {
     }
 
     .letter-btn {
-        width: calc(10% - 8px); /* Use percentage for better grid-like layout */
-        height: 45px;
-        font-size: 1.3rem;
+        width: 45px; /* Revert to fixed size for larger buttons */
+        height: 45px; /* Revert to fixed size */
+        font-size: 1.4rem; /* Increase font size */
         padding: 0;
-        gap: 8px;
     }
 
     .controls {

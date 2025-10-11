@@ -315,6 +315,15 @@ let currentAnswer = "";
 let usedLetters = [];
 let hintsUsed = 0;
 
+// --- Sound Function ---
+function playClickSound() {
+    const clickSound = document.getElementById('clickSound');
+    if (clickSound) {
+        clickSound.currentTime = 0; // Rewind to the start
+        clickSound.play();
+    }
+}
+
 // Initialize game
 function initGame() {
     loadLevel();
@@ -385,6 +394,7 @@ function setupLetters(letters) {
 }
 
 function selectLetter(btn, letter) {
+    playClickSound();
     if (btn.classList.contains('used')) return;
     
     btn.classList.add('used');
@@ -403,7 +413,6 @@ function selectLetter(btn, letter) {
                 wordLetter.style.opacity = '1';
                 wordLetter.style.background = 'linear-gradient(135deg, #51cf66, #40c057)';
                 letterFound = true;
-                btn.classList.add('correct');
                 score += 10;
                 updateScore();
             }
@@ -435,6 +444,7 @@ function selectLetter(btn, letter) {
 }
 
 function showHint() {
+    playClickSound();
     const hintBox = document.getElementById('hintBox');
     hintBox.textContent = `💡 ${questions[currentLevel].hint}`;
     hintBox.classList.add('show');
@@ -444,10 +454,12 @@ function showHint() {
 }
 
 function skipQuestion() {
+    playClickSound();
     document.getElementById('skipConfirm').classList.add('show');
 }
 
 function confirmSkip() {
+    playClickSound();
     lives--;
     updateLives();
     
@@ -461,6 +473,7 @@ function confirmSkip() {
 }
 
 function closeSkipConfirm() {
+    playClickSound();
     document.getElementById('skipConfirm').classList.remove('show');
 }
 
@@ -538,6 +551,7 @@ function showGameComplete() {
 }
 
 function nextLevel() {
+    playClickSound();
     document.getElementById('levelComplete').classList.remove('show');
     currentLevel++;
     loadLevel();
@@ -545,8 +559,9 @@ function nextLevel() {
 }
 
 function restartGame() {
+    playClickSound();
     currentLevel = 0;
-    lives = 20;
+    lives = 15;
     score = 0;
     hintsUsed = 0;
     
@@ -564,12 +579,13 @@ function restartGame() {
 initGame();
 
 function pauseGame() {
+    playClickSound();
     clearInterval(timerInterval);
     document.getElementById('pauseModal').classList.add('show');
 }
 
 function resumeGame() {
+    playClickSound();
     document.getElementById('pauseModal').classList.remove('show');
     startTimer();
 }
-

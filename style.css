@@ -141,10 +141,7 @@ body {
 }
 
 .letter-btn:hover:not(:disabled) {
-    background-color: #e0c56e; /* A slightly brighter gold for the glow */
-    background-color: #e0c56e; /* A slightly brighter gold for the glow */
-    color: #121212;
-    box-shadow: 0 0 15px var(--accent-gold);
+    /* Hover effect removed */
 }
 
 .letter-btn.used {
@@ -181,7 +178,6 @@ body {
 
 .btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
 }
 
 .btn-hint, .btn-skip, .btn-pause, .btn-next, .btn-restart {
@@ -231,4 +227,56 @@ body {
     font-size: 1.2rem;
     margin-bottom: 25px;
     line-height: 1.5;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 600px) {
+    .game-container {
+        padding: 15px;
+        border: none; /* Remove border on small screens to maximize space */
+        box-shadow: none; /* Remove shadow for a flatter mobile look */
+    }
+
+    .game-header {
+        flex-wrap: wrap; /* Allow stats to wrap onto the next line */
+        gap: 10px; /* Increase gap for better spacing when wrapped */
+        font-size: 0.9rem;
+    }
+
+    .stat {
+        flex-grow: 1; /* Allow stats to grow and fill the space */
+        flex-basis: 40%; /* Aim for two items per row */
+        padding: 8px;
+        min-width: 0; /* Reset min-width to allow flexbox to manage size */
+    }
+
+    .question {
+        font-size: 1.3rem; /* Slightly larger for better readability */
+    }
+
+    .word-letter {
+        width: 38px; /* Slightly larger for better touch interaction */
+        height: 38px;
+        font-size: 1.3rem;
+        border-width: 1px;
+    }
+
+    .letter-btn {
+        width: calc(10% - 8px); /* Use percentage for better grid-like layout */
+        height: 45px;
+        font-size: 1.3rem;
+        padding: 0;
+        gap: 8px;
+    }
+
+    .controls {
+        flex-direction: row; /* Align buttons horizontally */
+        justify-content: space-around; /* Distribute buttons evenly */
+        gap: 10px;
+    }
+
+    .btn {
+        padding: 12px 10px; /* Reduce padding to make buttons smaller */
+        font-size: 0.9rem; /* Reduce font size */
+    }
 }
